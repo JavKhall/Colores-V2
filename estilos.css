@@ -65,43 +65,59 @@ a {
 }
 
 .articulo__color div {
+    display: flex;
     margin: 10px;
     width: 150px;
     height: 150px;
     border-radius: 10px;
-    transition: all 200ms;
-
+    transition: transform 200ms;
 }
 
 .color1 div {
     background-color: red;
+    color: red;
 }
  
 .color2 div {
     background-color: orange;
+    color: orange;
 }
 
 .color3 div {
     background-color: yellow;
+    color: yellow;
 }
 
 .color4 div {
     background-color: green;
+    color: green;
 }
 
 .color5 div {
     background-color: blue;
+    color: blue;
 }
 
 .texto-color {
     text-align: center;
+    margin: auto;
     font-size: 18px;
+    /* transition: transform 250ms ; */
+    transform: rotate(-15deg);
+    user-select: none;
 }
 
+.articulo__color div:hover {
+    transform: scale(1.25) rotate(15deg);
+    transition-timing-function: ease-in-out; 
+    /* color: white;   */
+}
 
-.articulo__color div:hover{
-    transform: scale(1.15) rotate(15deg);
-    
+.articulo__color div:hover .texto-color{
+    transition-timing-function: ease-in;
+    transition: 800ms;
+    transition-delay: 350ms; 
+    color: white;  
 }
 
 /*CONFIGURACION DE LA BARRA LATERAL*/

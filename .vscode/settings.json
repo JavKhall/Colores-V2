@@ -1,0 +1,10 @@
+{
+    "workbench.colorCustomizations": {
+        "editor.tokenColorCustomizations": {
+            "[Default Dark+]": {
+                "comments": "#586e5e"       
+            }
+        }
+    
+    }
+}
