@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
-    /* height: 100%;
-    width: 100%; */
+        /* height: 100%;
+        width: 100%; */
 }
 
 body {
@@ -11,22 +11,24 @@ body {
 
 .contenedor {
     display: grid;
+    width: 95%;
+    margin: 15px auto;
+    max-width: 1600px;
     gap: 5px;
-    grid-template-columns: repeat(3);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, auto);
     grid-template-areas: 
-        "header     header      header"
-        "nav        nav         nav"
-        "section    section     aside"
-        "footer     footer      footer";
-    grid-auto-rows: min-content;
+        "header  header  header  header  header"
+        "nav     nav     nav     nav     nav"
+        "section section section section aside"
+        "footer  footer  footer  footer  footer";
 }
  
 /*CONFIGURACION DE HEADER*/
 .header {
     grid-area: header;
     display: block;
-    padding: 5px;
+    padding: 10px 30px;
     margin: 20px 0px;
     border-radius: 10px;
     background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
@@ -157,10 +159,11 @@ SE ANIMA LA CAJA EN SI, TAMAÑO Y ROTACION */
 /*CONFIGURACION DE LA BARRA LATERAL*/
 .aside {
     grid-area: aside;
-    display: inline-block;
-    width: 100%;
+    display: flex;
+    width: 60%;
     margin: 15px;
     border-left: 1px solid;
+    position: left;
 }
 
 .aside__lista {
@@ -193,7 +196,38 @@ SE ANIMA LA CAJA EN SI, TAMAÑO Y ROTACION */
 }
 
 /* CONFIGURACION DE RESPONSIVIDAD DE LA PAGINA */
-@media screen and (max-width: 600px) {
-     
-    
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) { 
+    .contenedor {
+        grid-template-areas: 
+            "header     header"
+            "nav        nav"
+            "section    section"     
+            "aside      aside"
+            "footer     footer";
+        grid-auto-rows: min-content;
+    }
 }
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) { 
+    .contenedor {
+        grid-template-areas: 
+            "header     header"
+            "nav        nav"
+            "section    section"     
+            "aside      aside"
+            "footer     footer";
+        grid-auto-rows: min-content;
+    }
+ }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    
+ }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+ }
