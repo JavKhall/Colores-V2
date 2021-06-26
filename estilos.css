@@ -1,33 +1,38 @@
-* {
+html {
     box-sizing: border-box;
-        /*height: 100%;
-        width: 100%; */
+    height: 100%;
+    /* width: 100%; */
 }
 
 body {
-    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    /* background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%); */
+    background-color:   #d6eaf8;
     font-family: "Didact Gothic";
 }
 
 .contenedor {
     display: grid;
     width: 95%;
+    height: 95%;
     margin: 15px auto;
     max-width: 1600px;
     gap: 5px;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: repeat(5, auto);
     grid-template-areas: 
         "header  header  header  header  header"
         "nav     nav     nav     nav     nav"
         "section section section section aside"
+        "section section section section aside"
         "footer  footer  footer  footer  footer";
+    grid-template-rows: min-content;
 }
  
 /*CONFIGURACION DE HEADER*/
 .header {
     grid-area: header;
     display: block;
+    /* height: 200px; */
     padding: 10px 30px;
     margin: 20px 0px;
     border-radius: 10px;
@@ -39,14 +44,20 @@ body {
     grid-area: nav;
     display: flex;
     margin: 10px;
+    height: 60px;
     justify-content: start;
     border-top: 1px solid;
     border-bottom: 1px solid;
 }
 
-.nav li {
-    display: inline-flex;
+.nav__lista {
+    display: flex;
     padding: 1px 50px;
+}
+
+.nav__lista li {
+    display: inline-flex;
+    margin: auto 30px;
 }
 
 a {
@@ -67,6 +78,7 @@ a {
     width: 100%;
     justify-content: space-around;
     margin: 30px 30px;
+    flex-wrap: wrap;
 }
 
 .articulo__color div {
@@ -182,7 +194,9 @@ SE ANIMA LA CAJA EN SI, TAMAÑO Y ROTACION */
     grid-area: footer;
     display: flex;
     align-content: center;
+    align-self: flex-end;
     width: 100%;
+    height: 60px;
     margin: 20px 0px; 
     border-radius: 10px;
     background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
@@ -198,39 +212,47 @@ SE ANIMA LA CAJA EN SI, TAMAÑO Y ROTACION */
 
 /* CONFIGURACION DE RESPONSIVIDAD DE LA PAGINA */
 /* Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) { 
-    .contenedor {
+@media screen and (max-width: 576px) { 
+    .contenedor {    
+        display: grid;
+        grid-template-columns: repeat(1fr);
+        grid-template-rows: repeat(5, auto);
         grid-template-areas: 
-            "header     header"
-            "nav        nav"
-            "section    section"     
-            "aside      aside"
-            "footer     footer";
+            "header"
+            "nav"
+            "section"     
+            "aside"
+            "footer";
         grid-auto-rows: min-content;
     }
-}
 
-/* Medium devices (tablets, 768px and up) */
-@media (max-width: 768px) { 
-    .contenedor {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, auto);
-        grid-template-areas: 
-            "header     header"
-            "nav        nav"
-            "section    section"     
-            "aside      aside"
-            "footer     footer";
-        grid-auto-rows: min-content;
+    .nav {
+        display: flex;
+        justify-content: center;
+        position: center;
+        margin: 15px 0px;
+        width: 100%;
+    }
+
+    .nav__lista {
+        display: flex;
+        position: center;
+        justify-content: center;
+    }
+
+    .nav li a {
+        margin: auto;
     }
 
     .section__articulo {
-        flex-wrap: wrap;
+        flex-direction: column;
     }
 
-    .articulo__color {
-        margin: 30px;
+    .articulo__color div {
+        width: 200px;
+        height: 200px;
+        position: center;
+        margin: 20px auto; 
     }
 
     .aside {
@@ -252,6 +274,60 @@ SE ANIMA LA CAJA EN SI, TAMAÑO Y ROTACION */
 
     .aside li {
         margin: auto;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (max-width: 768px) { 
+    .contenedor {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas: 
+            "header     header"
+            "nav        nav"
+            "section    section"     
+            "aside      aside"
+            "footer     footer";
+        grid-auto-rows: min-content;
+    }
+
+    .section__articulo {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .articulo__color {
+        margin: 30px;
+    }
+
+    .articulo__color div {
+        width: 180px;
+        height: 180px;
+        
+    }
+
+    .aside {
+        display: block;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-left: 0px;
+        width: 100%;
+        margin: 15px 0px;
+        justify-content: center;
+        position: center;
+    }
+
+    .aside__lista {
+        display: flex;
+        justify-content: space-around;
+        position: center;
+    }
+
+    .aside li {
+        margin: auto;
+
     }
  }
 
